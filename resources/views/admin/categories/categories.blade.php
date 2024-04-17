@@ -1,3 +1,9 @@
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 @extends('layouts.main')  
   @section('main')
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -9,7 +15,7 @@
 
       <div class="row">
         <div class="col-lg-2">
-          <a href="kategori-tambah.php"class="btn btn-success w-100 py-2" type="button">Tambah Data</a> 
+          <a href="/categoryAdd"class="btn btn-success w-100 py-2" type="button">Tambah Data</a> 
         </div>
       </div>
      
