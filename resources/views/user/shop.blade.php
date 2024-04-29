@@ -1,3 +1,11 @@
+<?php 
+if (session()->has('success')) {
+   echo ' <script> alert("Login successful! Enjoy Shopping."); </script>';
+}
+if (session()->has('error')) {
+   echo ' <script> alert("Pesanan melebihi Jumlah."); </script>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +55,11 @@
           <div class="col-md-4" data-aos="zoom-in">
             <div class="card-custom">
               <div class="card-custom-header">
-                <img src="img/{{$product->picture}}" alt="" class="img-custom">
+                        @if ($product->picture)
+                <img src="{{ asset('storage/' .$product->picture)}}" alt="" class="img-custom">
+                 @else
+                 <img src="https://source.unsplash.com/1200x400?" class="img-custom">
+                     @endif
               </div>
               <div class="card-custom-body d-flex justify-content-between">
                 <div class="card-custom-text my-auto">
@@ -56,7 +68,7 @@
                   <span class="d-block font-weight-bold mb-3">Jumlah Stok :{{$product->stock}}</span>
                 </div>
               </div>
-              <a href="" class="btn btn-sm btn-primary">Beli</a>
+              <a href="/buy/{{$product->id}}" class="btn btn-sm btn-primary">Beli</a>
             </div>
           </div>
      @endforeach

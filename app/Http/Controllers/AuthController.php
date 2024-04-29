@@ -28,10 +28,10 @@ public function login(Request $request){
 
 
      if (Auth::attempt($data)) {
-        return redirect('/categories')->with('success', 'Success, Please Login');
+        return redirect('/shop')->with('success', 'Success to Login');
     }
 
-    return back()->with('loginError', 'Password atau Username Salah');
+    return back()->with('loginError', ' Wrong password or username');
 }
 
 public function store(Request $request){

@@ -7,15 +7,15 @@
 
         </div>
       </div>
-     
 
       <div class="col-12 p-3">
-      <form action="" method="post"`>
-        <input type="hidden" name="id_kategori" value="{{$category->id}}">
+      <form action="/updateCategory" method="post">
+        @csrf
+        <input type="hidden" name="id" value="{{$category->id}}">
             <div class="mb-3">
-                <input type="text" name="nama_kategori" placeholder="kategori" class="form-control" value ="{{$category->category_name}}" required>
+                <input type="text" name="category_name" placeholder="kategori" class="form-control" value ="{{$category->category_name}}" required>
             </div>
-            <a href="kategori.php" class="btn btn-success" >Kembali</a>
+            <a href="/categories" class="btn btn-success" >Kembali</a>
             <button type="submit" class="btn btn-primary" name="submit" >Simpan</button>
         </form>
     </div>

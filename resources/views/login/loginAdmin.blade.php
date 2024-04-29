@@ -185,10 +185,10 @@ if (session()->has('loginError')) {
     <button class="btn btn-primary w-100 py-2" type="submit" name="login">Login</button>
     <div class="row mt-1">
       <div class="col">
-        <a href="register"class="btn btn-success w-100 py-2" type="button">Register </a> 
+        <a href="/registerAdmin"class="btn btn-success w-100 py-2" type="button">Register </a> 
       </div>
       <div class="col">
-      <a href="/loginAdmin"class="btn btn-secondary w-100 py-2" type="button">I am an admin</a>
+      <a href="/"class="btn btn-secondary w-100 py-2" type="button">I am an User</a>
       </div>
     </div>
 

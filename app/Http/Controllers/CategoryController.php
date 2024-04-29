@@ -14,7 +14,7 @@ class CategoryController extends Controller
     }
 
     public function show (Category $category){
-        return view ('admin.categories.categoryAdd',[
+        return view ('admin.categories.categoryForm',[
             'category' => $category
         ]);
     }
@@ -32,5 +32,31 @@ class CategoryController extends Controller
 
         return redirect('/categories')->with('success', 'Transaction saved successfully!');
 
+    }
+
+    public function update(Request $request, Category $category)
+    {
+
+        $category = Category::find($request->id);
+
+        dd($category);
+
+        if (!$category) {
+            // Handle case where Category with given ID is not found
+            return false;
+        }
+    
+        $category->update($request->all());
+
+      return redirect('/categories')->with('successUpdate', 'Category changed successfully!');
+
+    }
+
+       public function destroy( $id)
+    {
+        $transaction = Category::findOrFail($id);
+        $transaction->delete();
+
+        return redirect('/categories')->with('successDelete', 'Category telah dihapus');
     }
 }

@@ -5,8 +5,10 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Admin;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -28,7 +30,7 @@ class DatabaseSeeder extends Seeder
                 "product_name"=> "Nasi Ayam",
                 "stock"=> 4,
                 "product_desc"=> "Nasi ayam enak",
-                "picture"=> 'foto1.jpg',
+          
                 "category_id"=> 1,
                 "created_at"=> null,
                 "updated_at"=> null
@@ -37,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 "product_name"=> "Es Teh",
                 "stock"=> 7,
                 "product_desc"=> "Es teh enak",
-                "picture"=> 'foto2.jpg',
+         
                 "category_id"=> 2,
                 "created_at"=> null,
                 "updated_at"=> null
@@ -46,7 +48,7 @@ class DatabaseSeeder extends Seeder
                 "product_name"=> "Es Teh",
                 "stock"=> 7,
                 "product_desc"=> "Es teh enak",
-                "picture"=> 'foto2.jpg',
+        
                 "category_id"=> 2,
                 "created_at"=> null,
                 "updated_at"=> null
@@ -55,7 +57,7 @@ class DatabaseSeeder extends Seeder
                 "product_name"=> "Es Teh",
                 "stock"=> 7,
                 "product_desc"=> "Es teh enak",
-                "picture"=> 'foto2.jpg',
+               
                 "category_id"=> 2,
                 "created_at"=> null,
                 "updated_at"=> null
@@ -64,7 +66,7 @@ class DatabaseSeeder extends Seeder
                 "product_name"=> "Es Teh",
                 "stock"=> 7,
                 "product_desc"=> "Es teh enak",
-                "picture"=> 'foto2.jpg',
+               
                 "category_id"=> 2,
                 "created_at"=> null,
                 "updated_at"=> null
@@ -73,7 +75,7 @@ class DatabaseSeeder extends Seeder
                 "product_name"=> "Es Teh",
                 "stock"=> 7,
                 "product_desc"=> "Es teh enak",
-                "picture"=> 'foto2.jpg',
+               
                 "category_id"=> 2,
                 "created_at"=> null,
                 "updated_at"=> null
@@ -95,6 +97,17 @@ class DatabaseSeeder extends Seeder
               
             ];
 
+            $password = '123';
+          $hashedPassword = Hash::make($password);
+
+          $dataAdmin = [
+            'username' => 'putrawibawa9',
+            'password' => $hashedPassword
+          ];
+
+
+
+             Admin::insert($dataAdmin);
              User::insert($dataUser);
              Product::insert($dataProduct);
              Category::insert($dataCategory);

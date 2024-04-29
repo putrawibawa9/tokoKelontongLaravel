@@ -3,6 +3,16 @@
         {{ session('success') }}
     </div>
 @endif
+@if(session('successDelete'))
+    <div class="alert alert-danger">
+        {{ session('successDelete') }}
+    </div>
+@endif
+@if(session('successUpdate'))
+    <div class="alert alert-secondary">
+        {{ session('successUpdate') }}
+    </div>
+@endif
 
 @extends('layouts.main')  
   @section('main')
@@ -36,7 +46,7 @@
                 <td>{{$row->category_name}}</td>
                 <td class="text-center">
                   <a href="/category/{{$row->id}}" class="btn btn-primary btn-sm">Ubah</a>
-                  <a href="kategori-delete.php?id_kategori=<?=$row['id_kategori'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Hapus</a>
+                  <a href="/deleteCategory/{{$row->id}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Hapus</a>
                 </td>
               </tr>
             @endforeach
